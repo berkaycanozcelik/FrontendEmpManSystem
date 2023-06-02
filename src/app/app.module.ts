@@ -8,9 +8,10 @@ import { NavbarComponent } from './Shared/navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
+import { FooterComponent } from './Shared/footer/footer/footer.component';
 
 @NgModule({
-  declarations: [AppComponent, EmployeeListComponent, NavbarComponent],
+  declarations: [AppComponent, EmployeeListComponent, NavbarComponent, FooterComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
