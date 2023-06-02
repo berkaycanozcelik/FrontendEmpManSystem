@@ -1,4 +1,5 @@
 import { Component, OnDestroy } from '@angular/core';
+import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Employee } from 'src/app/Employee/employee';
 import { EmployeeService } from 'src/app/Employee/employee.service';
@@ -16,7 +17,10 @@ export class FormComponent implements OnDestroy {
     lastName: '',
     emailId: '',
   };
-  constructor(private employeeService: EmployeeService) {}
+  constructor(
+    private employeeService: EmployeeService,
+    private router: Router
+  ) {}
 
   onSubmit(): void {
     this.createEmployeeSubscription = this.employeeService
@@ -25,6 +29,8 @@ export class FormComponent implements OnDestroy {
         (response) => {
           // Handle success response here
           console.log('Employee created:', response);
+          // Redirect to the home page
+          this.router.navigateByUrl('/employees');
         },
         (error) => {
           // Handle error response here
