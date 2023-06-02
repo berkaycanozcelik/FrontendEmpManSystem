@@ -10,9 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './Shared/footer/footer/footer.component';
 import { CreateEmployeeComponent } from './Employee/create-employee/create-employee.component';
+import { FormComponent } from './Shared/form/form.component';
 
 @NgModule({
-  declarations: [AppComponent, EmployeeListComponent, NavbarComponent, FooterComponent, CreateEmployeeComponent],
+  declarations: [AppComponent, EmployeeListComponent, NavbarComponent, FooterComponent, CreateEmployeeComponent, FormComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
