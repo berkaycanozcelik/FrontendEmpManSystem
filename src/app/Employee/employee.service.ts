@@ -8,11 +8,17 @@ import { Employee } from './employee';
   providedIn: 'root',
 })
 export class EmployeeService {
-  private apiUrl = 'http://localhost:8080/api/v1/employees';
+  private apiUrl = 'http://localhost:8080/api/v1';
 
   constructor(private http: HttpClient) {}
 
   getEmployees(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(this.apiUrl);
+    const url = `${this.apiUrl}/employees`;
+    return this.http.get<Employee[]>(url);
+  }
+
+  createEmployee(employee: Employee): Observable<Employee> {
+    const url = `${this.apiUrl}/employee`;
+    return this.http.post<Employee>(url, employee);
   }
 }
