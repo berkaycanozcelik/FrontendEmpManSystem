@@ -1,18 +1,27 @@
 <form (submit)="onSubmit()" class="form-container">
-    <div class="form-group">
-      <label for="name">Name:</label>
-      <input type="text" id="name" [(ngModel)]="formData.name" name="name">
-    </div>
-    <div class="form-group">
-      <label for="surname">Surname:</label>
-      <input type="text" id="surname" [(ngModel)]="formData.surname" name="surname">
-    </div>
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="email" id="email" [(ngModel)]="formData.email" name="email">
-    </div>
-    <div class="form-group">
-      <button type="submit" class="btn btn-primary btn-submit">Submit</button>
-    </div>
-  </form>
-  
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" id="name" [(ngModel)]="formData.firstName" name="name" />
+  </div>
+  <div class="form-group">
+    <label for="surname">Surname:</label>
+    <input
+      type="text"
+      id="surname"
+      [(ngModel)]="formData.lastName"
+      name="surname"
+    />
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input
+      type="email"
+      id="email"
+      [(ngModel)]="formData.emailId"
+      name="email"
+    />
+  </div>
+  <div class="form-group">
+    <button type="submit" class="btn btn-primary btn-submit">Submit</button>
+  </div>
+</form>
