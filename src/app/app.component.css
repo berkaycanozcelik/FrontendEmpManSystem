@@ -1,0 +1,4 @@
+.container {
+    min-height: calc(100vh - 116px);
+    /* Adjust padding or margin for the container if needed */
+  }
