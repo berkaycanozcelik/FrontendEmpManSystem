@@ -1,0 +1,7 @@
+footer {
+    height: 60px; /* Adjust the height of your footer */
+    background-color: #f5f5f5; /* Set background color if desired */
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }
