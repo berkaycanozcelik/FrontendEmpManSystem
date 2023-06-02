@@ -9,9 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './Shared/footer/footer/footer.component';
+import { CreateEmployeeComponent } from './Employee/create-employee/create-employee.component';
 
 @NgModule({
-  declarations: [AppComponent, EmployeeListComponent, NavbarComponent, FooterComponent],
+  declarations: [AppComponent, EmployeeListComponent, NavbarComponent, FooterComponent, CreateEmployeeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
