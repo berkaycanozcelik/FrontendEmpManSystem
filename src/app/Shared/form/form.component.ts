@@ -13,7 +13,7 @@ export class FormComponent implements OnDestroy {
   @Input() formTitle: string = '';
   private createEmployeeSubscription: Subscription | undefined;
 
-  formData: Employee = {
+  @Input() formData: Employee = {
     firstName: '',
     lastName: '',
     emailId: '',
