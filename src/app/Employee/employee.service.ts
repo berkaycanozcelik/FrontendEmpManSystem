@@ -23,11 +23,16 @@ export class EmployeeService {
 
   getEmployeeById(employeeId: number): Observable<Employee> {
     const url = `${this.apiUrl}/employees/${employeeId}`;
-    return this.http.get<Employee>(`${url}`);
+    return this.http.get<Employee>(url);
   }
 
   updateEmployee(employeeId: number, employee: Employee): Observable<Object> {
     const url = `${this.apiUrl}/employees/${employeeId}`;
-    return this.http.put(`${url}`, employee);
+    return this.http.put(url, employee);
+  }
+
+  deleteEmployee(employeeId: number | undefined): Observable<Employee> {
+    const url = `${this.apiUrl}/employees/${employeeId}`;
+    return this.http.delete<Employee>(url);
   }
 }
