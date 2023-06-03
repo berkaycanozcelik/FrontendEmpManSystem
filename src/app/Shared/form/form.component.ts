@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy } from '@angular/core';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Employee } from 'src/app/Employee/employee';
@@ -10,6 +10,7 @@ import { EmployeeService } from 'src/app/Employee/employee.service';
   styleUrls: ['./form.component.css'],
 })
 export class FormComponent implements OnDestroy {
+  @Input() formTitle: string = '';
   private createEmployeeSubscription: Subscription | undefined;
 
   formData: Employee = {
