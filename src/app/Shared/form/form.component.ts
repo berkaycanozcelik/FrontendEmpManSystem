@@ -1,6 +1,6 @@
 import { Component, Input, OnDestroy } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Subscription, take } from 'rxjs';
 import { Employee } from 'src/app/Employee/employee';
 import { EmployeeService } from 'src/app/Employee/employee.service';
 
@@ -38,36 +38,40 @@ export class FormComponent implements OnDestroy {
   onSubmit(): void {
     this.createEmployeeSubscription = this.employeeService
       .createEmployee(this.formData)
-      .subscribe(
-        (response) => {
+      .pipe(
+        take(1) // Ensure that the subscription completes after receiving one value
+      )
+      .subscribe({
+        next: (response) => {
           // Handle success response here
           console.log('Employee created:', response);
           // Redirect to the home page
           this.router.navigateByUrl('/employees');
         },
-        (error) => {
+        error: (error) => {
           // Handle error response here
           console.error('Error creating employee:', error);
-        }
-      );
+        },
+      });
   }
 
   onUpdate() {
-    console.log('FORM DATA', this.formData);
-
     this.employeeService
       .updateEmployee(this.activatedRoute.snapshot.params['id'], this.formData)
-      .subscribe(
-        (response) => {
+      .pipe(
+        take(1) // Ensure that the subscription completes after receiving one value
+      )
+      .subscribe({
+        next: (response) => {
           // Handle success response here
           console.log('Employee updated:', response);
           this.router.navigateByUrl('/employees');
         },
-        (error) => {
+        error: (error) => {
           // Handle error response here
           console.error('Error updating employee:', error);
-        }
-      );
+        },
+      });
   }
 
   ngOnDestroy(): void {
