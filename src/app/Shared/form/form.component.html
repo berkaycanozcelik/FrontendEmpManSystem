@@ -1,4 +1,4 @@
-<form (submit)="onSubmit()" class="form-container">
+<form class="form-container">
   <h3>{{ formTitle }}</h3>
   <div class="form-group">
     <label for="name">Name:</label>
@@ -23,11 +23,15 @@
     />
   </div>
   <div class="form-group">
-    <button *ngIf="isCreate" type="submit" class="btn btn-primary btn-submit">
+    <button
+      *ngIf="isCreate"
+      (click)="onSubmit()"
+      class="btn btn-primary btn-submit"
+    >
       Submit
     </button>
     <button
-      *ngIf="isUpdate"
+      *ngIf="!isCreate"
       (click)="onUpdate()"
       class="btn btn-primary btn-submit"
     >
