@@ -19,7 +19,6 @@ export class FormComponent implements OnDestroy {
     emailId: '',
   };
 
-  isUpdate: boolean = false;
   isCreate: boolean = false;
 
   constructor(
@@ -33,7 +32,7 @@ export class FormComponent implements OnDestroy {
     //checks the page we are on to adjust the button
     url.includes('create-employee')
       ? (this.isCreate = true)
-      : (this.isUpdate = true);
+      : (this.isCreate = false);
   }
 
   onSubmit(): void {
@@ -54,10 +53,21 @@ export class FormComponent implements OnDestroy {
   }
 
   onUpdate() {
-    this.employeeService.updateEmployee(
-      this.activatedRoute.snapshot.params['id'],
-      this.formData
-    );
+    console.log('FORM DATA', this.formData);
+
+    this.employeeService
+      .updateEmployee(this.activatedRoute.snapshot.params['id'], this.formData)
+      .subscribe(
+        (response) => {
+          // Handle success response here
+          console.log('Employee updated:', response);
+          this.router.navigateByUrl('/employees');
+        },
+        (error) => {
+          // Handle error response here
+          console.error('Error updating employee:', error);
+        }
+      );
   }
 
   ngOnDestroy(): void {
