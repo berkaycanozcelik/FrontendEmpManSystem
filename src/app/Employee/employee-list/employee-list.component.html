@@ -18,10 +18,20 @@
             <td>
               <div class="row">
                 <div class="col">
-                  <button class="btn btn-danger">Delete</button>
+                  <button
+                    (click)="deleteEmployee(employee.id)"
+                    class="btn btn-danger"
+                  >
+                    Delete
+                  </button>
                 </div>
                 <div class="col">
-                  <button class="btn btn-primary">Update</button>
+                  <button
+                    (click)="updateEmployee(employee.id)"
+                    class="btn btn-primary"
+                  >
+                    Update
+                  </button>
                 </div>
               </div>
             </td>
