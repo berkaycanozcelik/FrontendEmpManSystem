@@ -1,5 +1,5 @@
 import { Component, Input, OnDestroy } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { Employee } from 'src/app/Employee/employee';
 import { EmployeeService } from 'src/app/Employee/employee.service';
@@ -18,10 +18,23 @@ export class FormComponent implements OnDestroy {
     lastName: '',
     emailId: '',
   };
+
+  isUpdate: boolean = false;
+  isCreate: boolean = false;
+
   constructor(
     private employeeService: EmployeeService,
-    private router: Router
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) {}
+
+  ngOnInit(): void {
+    const url = this.router.url;
+    //checks the page we are on to adjust the button
+    url.includes('create-employee')
+      ? (this.isCreate = true)
+      : (this.isUpdate = true);
+  }
 
   onSubmit(): void {
     this.createEmployeeSubscription = this.employeeService
@@ -38,6 +51,15 @@ export class FormComponent implements OnDestroy {
           console.error('Error creating employee:', error);
         }
       );
+  }
+
+  onUpdate() {
+    console.log('FORM DATA', this.formData);
+
+    this.employeeService.updateEmployee(
+      this.activatedRoute.snapshot.params['id'],
+      this.formData
+    );
   }
 
   ngOnDestroy(): void {
