@@ -11,9 +11,10 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './Shared/footer/footer/footer.component';
 import { CreateEmployeeComponent } from './Employee/create-employee/create-employee.component';
 import { FormComponent } from './Shared/form/form.component';
+import { UpdateEmployeeComponent } from './Employee/update-employee/update-employee.component';
 
 @NgModule({
-  declarations: [AppComponent, EmployeeListComponent, NavbarComponent, FooterComponent, CreateEmployeeComponent, FormComponent],
+  declarations: [AppComponent, EmployeeListComponent, NavbarComponent, FooterComponent, CreateEmployeeComponent, FormComponent, UpdateEmployeeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
