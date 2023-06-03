@@ -25,4 +25,9 @@ export class EmployeeService {
     const url = `${this.apiUrl}/employees/${employeeId}`;
     return this.http.get<Employee>(`${url}`);
   }
+
+  updateEmployee(employeeId: number, employee: Employee): Observable<Object> {
+    const url = `${this.apiUrl}/employees/${employeeId}`;
+    return this.http.put(`${url}`, employee);
+  }
 }
