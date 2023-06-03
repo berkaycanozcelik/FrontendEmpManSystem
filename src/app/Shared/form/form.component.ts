@@ -54,8 +54,6 @@ export class FormComponent implements OnDestroy {
   }
 
   onUpdate() {
-    console.log('FORM DATA', this.formData);
-
     this.employeeService.updateEmployee(
       this.activatedRoute.snapshot.params['id'],
       this.formData
