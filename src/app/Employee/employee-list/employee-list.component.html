@@ -16,8 +16,14 @@
             <td>{{ employee.lastName }}</td>
             <td>{{ employee.emailId }}</td>
             <td>
-              <button class="btn btn-danger">Delete</button>
-              <button class="btn btn-primary" (click)="updateEmployee(employee.id)">Update</button>
+              <div class="row">
+                <div class="col">
+                  <button class="btn btn-danger">Delete</button>
+                </div>
+                <div class="col">
+                  <button class="btn btn-primary">Update</button>
+                </div>
+              </div>
             </td>
           </tr>
         </tbody>
