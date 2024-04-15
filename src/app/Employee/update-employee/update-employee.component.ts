@@ -13,7 +13,7 @@ export class UpdateEmployeeComponent {
 
   constructor(
     private employeeService: EmployeeService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {

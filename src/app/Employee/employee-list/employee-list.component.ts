@@ -14,7 +14,7 @@ export class EmployeeListComponent implements OnInit {
 
   constructor(
     private employeeService: EmployeeService,
-    private router: Router
+    private router: Router,
   ) {}
 
   ngOnInit(): void {

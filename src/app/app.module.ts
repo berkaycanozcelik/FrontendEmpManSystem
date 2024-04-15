@@ -14,7 +14,15 @@ import { FormComponent } from './Shared/form/form.component';
 import { UpdateEmployeeComponent } from './Employee/update-employee/update-employee.component';
 
 @NgModule({
-  declarations: [AppComponent, EmployeeListComponent, NavbarComponent, FooterComponent, CreateEmployeeComponent, FormComponent, UpdateEmployeeComponent],
+  declarations: [
+    AppComponent,
+    EmployeeListComponent,
+    NavbarComponent,
+    FooterComponent,
+    CreateEmployeeComponent,
+    FormComponent,
+    UpdateEmployeeComponent,
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

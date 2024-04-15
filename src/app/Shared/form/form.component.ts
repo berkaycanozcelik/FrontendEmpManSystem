@@ -24,7 +24,7 @@ export class FormComponent implements OnDestroy {
   constructor(
     private employeeService: EmployeeService,
     private router: Router,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) {}
 
   ngOnInit(): void {
@@ -39,7 +39,7 @@ export class FormComponent implements OnDestroy {
     this.createEmployeeSubscription = this.employeeService
       .createEmployee(this.formData)
       .pipe(
-        take(1) // Ensure that the subscription completes after receiving one value
+        take(1), // Ensure that the subscription completes after receiving one value
       )
       .subscribe({
         next: (response) => {
@@ -59,7 +59,7 @@ export class FormComponent implements OnDestroy {
     this.employeeService
       .updateEmployee(this.activatedRoute.snapshot.params['id'], this.formData)
       .pipe(
-        take(1) // Ensure that the subscription completes after receiving one value
+        take(1), // Ensure that the subscription completes after receiving one value
       )
       .subscribe({
         next: (response) => {
