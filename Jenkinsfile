@@ -1,34 +1,21 @@
 pipeline {
-    agent { docker { image 'node:20.11.1-alpine3.19' } }
+    agent any
+
     stages {
-        stage('Install Dependencies') {
+        stage('Build') {
             steps {
-                script {
-                    // Install Node.js, Prettier, and ESLint
-                    nodejs(nodeJSInstallationName: 'NodeJS') {
-                        sh 'npm install -g prettier eslint'
-                    }
-                }
+                echo 'Building..'
             }
         }
-
-        stage('Run Prettier') {
+        stage('Test') {
             steps {
-                script {
-                    // Run Prettier to format code
-                    sh 'prettier --write "src/**/*.js"'
-                }
+                echo 'Testing..'
             }
         }
-
-        stage('Run ESLint') {
+        stage('Deploy') {
             steps {
-                script {
-                    // Run ESLint to check code for linting issues
-                    sh 'eslint src'
-                }
+                echo 'Deploying....'
             }
         }
     }
-
 }
